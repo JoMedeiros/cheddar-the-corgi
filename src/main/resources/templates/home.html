@@ -17,23 +17,38 @@
 	rel="stylesheet" crossorigin="anonymous" />
 </head>
 <body>
-	
+
 	<div class="container">
 		<div class="card">
 			<div class="card-header">
 				<h1>Bem Vindo ao Cheddar The Corgi</h1>
 				<p>Um encurtador de links. Registre-se ou faça login para criar
 					um Link encurtado</p>
+				<a class="btn btn-primary float-right" href="/logout">Sair</a>
 			</div>
 
 			<div class="card-body">
-				<a class="btn btn-primary" href="/login">Entrar</a> 
-				<a class="btn btn-primary" href="/registrar">Registrar-se</a>
+				<form class="form-signin" method="post" action="#"
+					th:action="@{/api/gerarUrl}" th:object="${urlLonga}">
+					<h2 class="form-signin-heading">Criar encurtador</h2>
+					<p>
+						<label for="longUrl" class="sr-only">URL</label> 
+						<input
+							th:field="*{longUrl}" type="text" name="longUrl"
+							class="form-control" placeholder="http://www.urllonga.com" required autofocus>
+					</p>
+					<p>
+						<label for="expiresDate" class="sr-only">Data para expirar</label> 
+						<input
+							type="date" th:field="*{expiresDate}" name="expiresDate"
+							class="form-control" placeholder="--/--/----" required>
+					</p>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Criar URL encurtada</button>
+				</form>
 			</div>
 		</div>
 	</div>
-	
-	<div id="urlList">
-	</div>
+
+	<div id="urlList" class="card">Sua lista de URLs</div>
 </body>
 </html>
