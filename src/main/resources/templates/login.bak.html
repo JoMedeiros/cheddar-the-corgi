@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head lang="en">
+<meta charset="UTF-8" />
+<title>Cheddar The Corgi</title>
+<link rel="stylesheet" href="/style/main.css" />
+</head>
+<body>
+
+	<div class="container">
+		<div class="header-bar">
+			<h1>Login</h1>
+		</div>
+
+		<form method="POST">
+			<p>
+				<label for="username" class="sr-only">Usuário</label> <input
+					type="text" id="username" name="username" class="form-control"
+					placeholder="Username">
+			</p>
+			<p>
+				<label for="password" class="sr-only">Senha</label> <input
+					type="password" id="password" name="password" class="form-control"
+					placeholder="Senha">
+			</p>
+
+			<input class="button" type="submit" value="login">
+		</form>
+
+		<p>
+			Não tem uma conta? <a href="/registrar">Registrar</a>
+		</p>
+	</div>
+
+	</div>
+
+	<!--     <script src="built/bundle.js"></script> -->
+
+</body>
+</html>

@@ -1,13 +1,3 @@
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
-
-h1 {
-	font-family: 'Merriweather', serif;
-	font-style: italic;
-	color: green;
-}
-</style>
-
 # Instruções
 
 Crie um banco de dados PostgreSQL e atualize as informações do arquivo

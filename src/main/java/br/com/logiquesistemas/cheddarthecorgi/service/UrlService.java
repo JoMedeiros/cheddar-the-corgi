@@ -1,7 +1,10 @@
 package br.com.logiquesistemas.cheddarthecorgi.service;
 
 import java.util.Date;
+import java.util.List;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,6 +47,26 @@ public class UrlService {
 		}
 		
 		return longUrl.getLongUrl();
+	}
+	
+	public List<Url> getUrls() {
+		return urlRepository.findAll();
+	}
+
+	public void deletarUrl(Long id) throws IllegalArgumentException {
+		Object principal = SecurityContextHolder.getContext()
+				.getAuthentication().getPrincipal();
+
+		String username = "";
+		if (principal instanceof UserDetails) {
+		  username = ((UserDetails)principal).getUsername();
+		} else {
+		  username = principal.toString();
+		}
+		System.out.println("Username: " + username);
+		
+		Url url = urlRepository.getById(id);
+		urlRepository.delete(url);
 	}
 	
 }

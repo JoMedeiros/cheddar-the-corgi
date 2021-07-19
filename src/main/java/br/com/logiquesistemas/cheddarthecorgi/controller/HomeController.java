@@ -11,8 +11,8 @@ public class HomeController {
 		return "index";
 	}
 	
-	@GetMapping(value="/teste")
+	@GetMapping(value="/login")
 	public String teste() {
-		return "Teste";
+		return "login";
 	}
 }
